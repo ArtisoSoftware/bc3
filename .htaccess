@@ -1,4 +1,4 @@
-# .htaccess สำหรับ baccarat3.vercel.app/
+# .htaccess สำหรับ bc3-virid.vercel.app/
 
 # ใช้ index.html เป็นหน้าแรก
 DirectoryIndex index.html
@@ -8,7 +8,7 @@ DirectoryIndex index.html
 
   # 1) บังคับใช้ https + www
   RewriteCond %{HTTPS} !=on [OR]
-  RewriteCond %{HTTP_HOST} !^www\.baccarat3.vercel\.app$ [NC]
-  RewriteRule ^(.*)$ https://baccarat3.vercel.app//$1 [L,R=301]
+  RewriteCond %{HTTP_HOST} !^www\.bc3-virid.vercel\.app$ [NC]
+  RewriteRule ^(.*)$ https://bc3-virid.vercel.app//$1 [L,R=301]
 </IfModule>
 

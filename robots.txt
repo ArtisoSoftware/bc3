@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://baccarat3.vercel.app//sitemap.xml
+Sitemap: https://bc3-virid.vercel.app//sitemap.xml
