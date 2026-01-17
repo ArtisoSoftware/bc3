@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://bc3-virid.vercel.app//sitemap.xml
+Sitemap: https://mirobot.io//sitemap.xml

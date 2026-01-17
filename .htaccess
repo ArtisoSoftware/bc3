@@ -1,14 +1,18 @@
-# .htaccess สำหรับ bc3-virid.vercel.app/
-
-# ใช้ index.html เป็นหน้าแรก
+# mirobot.io - Use index.html as default
 DirectoryIndex index.html
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
+RewriteEngine On
 
-  # 1) บังคับใช้ https + www
-  RewriteCond %{HTTPS} !=on [OR]
-  RewriteCond %{HTTP_HOST} !^www\.bc3-virid.vercel\.app$ [NC]
-  RewriteRule ^(.*)$ https://bc3-virid.vercel.app//$1 [L,R=301]
-</IfModule>
+# 1) Redirect www -> non-www (canonical)
+RewriteCond %{HTTP_HOST} ^www\.mirobot\.io$ [NC]
+RewriteRule ^ https://mirobot.io%{REQUEST_URI} [R=301,L]
 
+# 2) Force HTTPS (for non-www)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^mirobot\.io$ [NC]
+RewriteRule ^ https://mirobot.io%{REQUEST_URI} [R=301,L]
+
+# 3) If request is NOT an existing file/dir => go to /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ / [L]
