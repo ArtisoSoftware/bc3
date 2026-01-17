@@ -1,0 +1,14 @@
+# .htaccess สำหรับ baccarat3.vercel.app/
+
+# ใช้ index.html เป็นหน้าแรก
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1) บังคับใช้ https + www
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\.baccarat3.vercel\.app$ [NC]
+  RewriteRule ^(.*)$ https://baccarat3.vercel.app//$1 [L,R=301]
+</IfModule>
+
